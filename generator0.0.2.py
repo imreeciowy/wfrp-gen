@@ -2,7 +2,6 @@
 
 import random
 import time
-import json
 import sys
 
 # print python version- dev purposes
