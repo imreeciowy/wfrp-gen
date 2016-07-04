@@ -1,6 +1,7 @@
 1. rename variables in Python's way
 eg: foo = long_function_name(var_one, var_two,
                          var_three, var_four)
+  https://www.python.org/dev/peps/pep-0008/#fn-hi
 2. Add 'used indicator' (already done, should merge)
 3. Use constructors - code now becomes messy. OOP.
 4. Create human class for start
