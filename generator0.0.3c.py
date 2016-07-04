@@ -1,4 +1,4 @@
-#! python3
+#!/usr/bin/python3
 
 import random
 import time
@@ -14,6 +14,8 @@ def xkn(x,n):
         rzutkn = random.randint(1,n)
         wynik = rzutkn + wynik
     return wynik
+
+humanBase=[20] * 8
 
 # losowanie statow za pomoca kostki generycznej
 freshStats=[]
@@ -50,9 +52,13 @@ statyFirstNames = ('WS', 'BS', 'S', 'T', 'Ag', 'Int', 'WP', 'Fel', 'A', 'W', 'SB
 
 # przyporzadkowanie statow
 # aktualnie przyporzadkowana wartosc jest castowana na string
-for S in freshStats:
-    print('wartosc '+str(S)+' chcesz przyporzadkowac do?')
-    print(*statyFirstNames, sep='\t')
+for idx, val in enumerate(freshStats):
+    print('wartosc '+str(val)+' chcesz przyporzadkowac do?')
+    for Ind, Vart in enumerate(statyFirstNames):
+        if (usedStats.count(Ind))==1:
+            print('*',end='')
+        print(Vart,end='\t')
+    print('\n')
     for i in range(8):
         print(i,end='\t')
     print('\n')
@@ -61,10 +67,10 @@ for S in freshStats:
             index = int(input('? '))    #wprowadz index stata
             if (usedStats.count(index)!=0):     #sprawdza czy juz nie przyporzadkowano
                 raise StatPresentError()        #jesli juz przyporzadkowano podaj jeszcze raz
-            chosenStats[index]=S        #przyporzodkowac wartosc do indeksu
+            chosenStats[index]=val        #przyporzodkowac wartosc do indeksu
             usedStats.append(index)     #notuje co juz przyporzadkowano
         except KeyboardInterrupt:
-            print('/nBYE!')
+            print('BYE!')
             sys.exit(0)
         except:
             print('Podaj jeszcze raz do czego chcesz przyporzadkowac wartosc'+str(S))
@@ -77,7 +83,8 @@ for w in range(0, 80):
 print('\n')
 print(*statyFirstNames, sep='\t')
 print(*chosenStats, sep='\t')
-
+#print(*usedStats, sep='\t')
+#print(*freshStats, sep='\t')
 for i in range(8):
     f.write(str(statyFirstNames[i]))
     f.write('\t')
@@ -88,3 +95,5 @@ for D in chosenStats:
 f.write('\n')
 
 f.close()
+
+print(*humanBase)
