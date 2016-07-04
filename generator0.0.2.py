@@ -2,6 +2,7 @@
 
 import random
 import time
+import json
 import sys
 
 # print python version- dev purposes
@@ -15,25 +16,7 @@ def xkn(x,n):
         wynik = rzutkn + wynik
     return wynik
 
-humanBasehumanBase=[20] * 8
-
-elfBase=humanBase
-elfBase[1]=30
-elfBase[4]=30
-
-dwarfBase=humanBase
-dwarfBase[0]=30
-dwarfBase[3]=30
-dwarfBase[4]=10
-dwarfBase[7]=10
-
-halflingBase=humanBase
-halflingBase[0]=10
-halflingBase[2]=10
-halflingBase[3]=10
-halflingBase[1]=30
-halflingBase[4]=30
-halflingBase[7]=30
+humanBase=[20] * 8
 
 # losowanie statow za pomoca kostki generycznej
 freshStats=[]
@@ -114,8 +97,4 @@ f.write('\n')
 
 f.close()
 
-
 print(*humanBase)
-print(*elfBase)
-print(*dwarfBase)
-print(*halflingBase)
