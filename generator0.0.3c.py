@@ -7,55 +7,56 @@ import sys
 # print python version- dev purposes
 print(sys.version)
 
-# kostka generyczna
+# generic dice
 def xkn(x,n):
-    wynik = 0
+    result = 0
     for i in range(0, x):
-        rzutkn = random.randint(1,n)
-        wynik = rzutkn + wynik
-    return wynik
+        roll_dice_n = random.randint(1,n)
+        result = roll_dice_n + result
+    return result
 
-humanBase=[20] * 8
+human_base=[20] * 8
 
-# losowanie statow za pomoca kostki generycznej
-freshStats=[]
+# roll for stats with generic dice
+fresh_stats=[]
 for x in range(0, 8):
-    freshStats.append(xkn(2, 10))
+    fresh_stats.append(xkn(2, 10))
 
-# sortuje wylosowane wyniki, usuwa dwa najnizsze wyniki, dodaje 11, znow sortuje 
-freshStats.sort()	
-freshStats.pop(0)
-freshStats.append(11)
-freshStats.sort(reverse=True)
+# sorts rolled results, removes lowest result, adds 11 as Shalya'a Favor, sorts again
+fresh_stats.sort()	
+fresh_stats.pop(0)
+fresh_stats.append(11)
+fresh_stats.sort(reverse=True)
 
-# print listy bez nawiasow (statListedString)
-statListedString = ' '.join(str(S) for S in freshStats)
-print(statListedString)
+# print list without brackets(stat_listed_String)
+stat_listed_String = ' '.join(str(S) for S in fresh_stats)
+print(stat_listed_String)
 
-# zapis do pliku - testowy - trzeba bedzie tez przekopiowac na koniec generacji, nie usuwac - TEST PURPOSES
-timeString = time.strftime("%Y-%m-%d--%H%M%S")
-filename = ('statystyki-' + timeString + '.txt')
+# save to file , will be moved somwhere else, now - TEST PURPOSES
+time_string = time.strftime("%Y-%m-%d--%H%M%S")
+filename = ('statistics-' + time_string + '.txt')
 f = open(filename, 'w')
-for S in freshStats:
+for S in fresh_stats:
     f.write(str(S))
     f.write('\t')
-f.write('\n'+str(sum(freshStats)))
+f.write('\n'+str(sum(fresh_stats)))
 f.write('\n')
-# przygotowanie suchej listy dla wlasciwych statystyk
-chosenStats = [0] * 8
 
-# przygotowanie pustej listy dla numeracji uzytych rzutow - dla unikniecia prob kilkukrotnego przypisania do jednego indeksu
-usedStats=[]
+# raw list for stats
+chosen_stats = [0] * 8
 
-# przygotowanie krotki z nazwami
-statyFirstNames = ('WS', 'BS', 'S', 'T', 'Ag', 'Int', 'WP', 'Fel', 'A', 'W', 'SB', 'TB', 'M', 'Mag', 'IP', 'FP')
+# empty list for roll enumeration - to avoid doubled attribution
+used_stats=[]
 
-# przyporzadkowanie statow
-# aktualnie przyporzadkowana wartosc jest castowana na string
-for idx, val in enumerate(freshStats):
-    print('wartosc '+str(val)+' chcesz przyporzadkowac do?')
-    for Ind, Vart in enumerate(statyFirstNames):
-        if (usedStats.count(Ind))==1:
+# tuple with stat names
+stat_first_names = ('WS', 'BS', 'S', 'T', 'Ag', 'Int', 'WP', 'Fel', 'A', 'W', 'SB', 'TB', 'M', 'Mag', 'IP', 'FP')
+
+# stats preparation
+# value as a string
+for idx, val in enumerate(fresh_stats):
+    print('value '+str(val)+' you want to have as ?')
+    for Ind, Vart in enumerate(stat_first_names):
+        if (used_stats.count(Ind))==1:
             print('*',end='')
         print(Vart,end='\t')
     print('\n')
@@ -64,16 +65,16 @@ for idx, val in enumerate(freshStats):
     print('\n')
     while True: 
         try:
-            index = int(input('? '))    #wprowadz index stata
-            if (usedStats.count(index)!=0):     #sprawdza czy juz nie przyporzadkowano
-                raise StatPresentError()        #jesli juz przyporzadkowano podaj jeszcze raz
-            chosenStats[index]=val        #przyporzodkowac wartosc do indeksu
-            usedStats.append(index)     #notuje co juz przyporzadkowano
+            index = int(input('? '))    #input stat index
+            if (used_stats.count(index)!=0):     #check if not assigned already
+                raise StatPresentError()        #give one more time if already assigned
+            chosen_stats[index]=val        #assign value to index
+            used_stats.append(index)     #notes what is assigned
         except KeyboardInterrupt:
             print('BYE!')
             sys.exit(0)
         except:
-            print('Podaj jeszcze raz do czego chcesz przyporzadkowac wartosc'+str(S))
+            print('Provide once more for what do you want to assign value '+str(S))
             continue
         else:
             break
@@ -81,19 +82,19 @@ for idx, val in enumerate(freshStats):
 for w in range(0, 80):
     print("*", end='')
 print('\n')
-print(*statyFirstNames, sep='\t')
-print(*chosenStats, sep='\t')
-#print(*usedStats, sep='\t')
-#print(*freshStats, sep='\t')
+print(*stat_first_names, sep='\t')
+print(*chosen_stats, sep='\t')
+#print(*used_stats, sep='\t')
+#print(*fresh_stats, sep='\t')
 for i in range(8):
-    f.write(str(statyFirstNames[i]))
+    f.write(str(stat_first_names[i]))
     f.write('\t')
 f.write('\n')
-for D in chosenStats:
+for D in chosen_stats:
     f.write(str(D))
     f.write('\t')
 f.write('\n')
 
 f.close()
 
-print(*humanBase)
+print(*human_base)
