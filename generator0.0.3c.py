@@ -8,7 +8,7 @@ import sys
 print(sys.version)
 
 # generic dice
-def xkn(x,n):
+def x_dices_n(x,n):
     result = 0
     for i in range(0, x):
         roll_dice_n = random.randint(1,n)
@@ -20,7 +20,7 @@ human_base=[20] * 8
 # roll for stats with generic dice
 fresh_stats=[]
 for x in range(0, 8):
-    fresh_stats.append(xkn(2, 10))
+    fresh_stats.append(x_dices_n(2, 10))
 
 # sorts rolled results, removes lowest result, adds 11 as Shalya'a Favor, sorts again
 fresh_stats.sort()	
