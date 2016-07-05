@@ -86,7 +86,7 @@ print(*chosen_stats, sep='\t')
 #print(*fresh_stats, sep='\t')
 
 # increment race base with chosen stats
-body1 = [sum(x) for x in zip(human_base1, chosen_stats)]
+body1 = [sum(x) for x in zip(base1, chosen_stats)]
 print(*stat_first_names, sep='\t')
 print(*body1, sep='\t')
 
