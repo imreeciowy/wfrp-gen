@@ -3,6 +3,7 @@
 import random
 import time
 import sys
+from operator import add
 
 # print python version- dev purposes
 print(sys.version)
@@ -15,7 +16,11 @@ def x_dices_n(x,n):
         result = roll_dice_n + result
     return result
 
-human_base=[20] * 8
+#race bases
+human_base1=[20] * 8
+
+#crude race selector ;)
+base1=human_base1
 
 # roll for stats with generic dice
 fresh_stats=[]
@@ -49,7 +54,9 @@ chosen_stats = [0] * 8
 used_stats=[]
 
 # tuple with stat names
-stat_first_names = ('WS', 'BS', 'S', 'T', 'Ag', 'Int', 'WP', 'Fel', 'A', 'W', 'SB', 'TB', 'M', 'Mag', 'IP', 'FP')
+stat_first_names = ('WS', 'BS', 'S', 'T', 'Ag', 'Int', 'WP', 'Fel')
+# tuple with second line stat names
+stat_second_names = ('A', 'W', 'SB', 'TB', 'M', 'Mag', 'IP', 'FP')
 
 # stats preparation
 # value as a string
@@ -78,7 +85,7 @@ for idx, val in enumerate(fresh_stats):
             continue
         else:
             break
-
+            
 for w in range(0, 80):
     print("*", end='')
 print('\n')
@@ -97,4 +104,7 @@ f.write('\n')
 
 f.close()
 
-print(*human_base)
+# increment race base with chosen stats
+body1 = map(add, human_base1, chosen_stats)
+print(*stat_first_names, sep='\t')
+print(*body1, sep='\t')
