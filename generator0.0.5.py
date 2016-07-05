@@ -37,17 +37,7 @@ fresh_stats.sort(reverse=True)
 stat_listed_String = ' '.join(str(S) for S in fresh_stats)
 print(stat_listed_String)
 
-# save to file , will be moved somwhere else, now - TEST PURPOSES
-time_string = time.strftime("%Y-%m-%d--%H%M%S")
-filename = ('statistics-' + time_string + '.txt')
-f = open(filename, 'w')
-for S in fresh_stats:
-    f.write(str(S))
-    f.write('\t')
-f.write('\n'+str(sum(fresh_stats)))
-f.write('\n')
-
-# raw list for stats
+# raw list for chosen stats
 chosen_stats = [0] * 8
 
 # empty list for roll enumeration - to avoid doubled attribution
@@ -81,7 +71,7 @@ for idx, val in enumerate(fresh_stats):
             print('BYE!')
             sys.exit(0)
         except:
-            print('Provide once more for what do you want to assign value '+str(S))
+            print('Provide once more for what do you want to assign value '+str(val))
             continue
         else:
             break
@@ -91,8 +81,25 @@ for w in range(0, 80):
 print('\n')
 print(*stat_first_names, sep='\t')
 print(*chosen_stats, sep='\t')
+
+#test purposes
 #print(*used_stats, sep='\t')
 #print(*fresh_stats, sep='\t')
+
+# increment race base with chosen stats
+body1 = [sum(x) for x in zip(human_base1, chosen_stats)]
+print(*stat_first_names, sep='\t')
+print(*body1, sep='\t')
+
+# save to file
+time_string = time.strftime("%Y-%m-%d--%H%M%S")
+filename = ('statistics-' + time_string + '.txt')
+f = open(filename, 'w')
+for S in fresh_stats:
+    f.write(str(S))
+    f.write('\t')
+f.write('\n'+str(sum(fresh_stats)))
+f.write('\n')
 for i in range(8):
     f.write(str(stat_first_names[i]))
     f.write('\t')
@@ -101,10 +108,7 @@ for D in chosen_stats:
     f.write(str(D))
     f.write('\t')
 f.write('\n')
-
+for A in body1:
+    f.write(str(A))
+    f.write('\t')
 f.close()
-
-# increment race base with chosen stats
-body1 = map(add, human_base1, chosen_stats)
-print(*stat_first_names, sep='\t')
-print(*body1, sep='\t')
