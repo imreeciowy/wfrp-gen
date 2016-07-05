@@ -3,7 +3,6 @@
 import random
 import time
 import sys
-from operator import add
 
 # print python version- dev purposes
 print(sys.version)
