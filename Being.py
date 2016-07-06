@@ -20,7 +20,7 @@ class Being():
         
         
 # having human as a base being is tempting, but it is not very developmental
- class Human(Being):
+class Human(Being):
     pass
         
 
@@ -32,7 +32,5 @@ class Elf(Being):
     pass
     
     
-class (Halfling):
+class Halfling(Being):
     pass
-    
-        
