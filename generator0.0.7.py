@@ -17,9 +17,8 @@ def x_dices_n(x,n):
     return result
 
 #crude race selector ;)
-player = Human()
-player.base_line1=Being.Human().base_line1
-
+player = Being.Human()
+print(player.base_line_1)
 # roll for stats with generic dice
 fresh_stats=[]
 for x in range(0, 8):
