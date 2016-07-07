@@ -17,7 +17,8 @@ def x_dices_n(x,n):
     return result
 
 #crude race selector ;)
-base1=Being.Human.race_base_line1
+player = Human()
+player.base_line1=Being.Human().base_line1
 
 # roll for stats with generic dice
 fresh_stats=[]
