@@ -3,6 +3,7 @@
 import random
 import time
 import sys
+import Being
 
 # print python version- dev purposes
 print(sys.version)
@@ -15,11 +16,8 @@ def x_dices_n(x,n):
         result = roll_dice_n + result
     return result
 
-#race bases
-human_base1=[20] * 8
-
 #crude race selector ;)
-base1=human_base1
+base1=Being.Human.race_base_line1
 
 # roll for stats with generic dice
 fresh_stats=[]
@@ -87,6 +85,7 @@ print(*chosen_stats, sep='\t')
 
 # increment race base with chosen stats
 body1 = [sum(x) for x in zip(base1, chosen_stats)]
+# TODO # neatstat_upper_line = 
 print(*stat_first_names, sep='\t')
 print(*body1, sep='\t')
 
