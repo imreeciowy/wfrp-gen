@@ -3,6 +3,7 @@
 import random
 import time
 import sys
+import Being
 
 # print python version- dev purposes
 print(sys.version)
@@ -15,12 +16,9 @@ def x_dices_n(x,n):
         result = roll_dice_n + result
     return result
 
-#race bases
-human_base1=[20] * 8
-
 #crude race selector ;)
-base1=human_base1
-
+player = Being.Human([], [])
+print(player.base_line_1)
 # roll for stats with generic dice
 fresh_stats=[]
 for x in range(0, 8):
@@ -86,9 +84,9 @@ print(*chosen_stats, sep='\t')
 #print(*fresh_stats, sep='\t')
 
 # increment race base with chosen stats
-body1 = [sum(x) for x in zip(base1, chosen_stats)]
+player.body1 = [sum(x) for x in zip(player.base_line_1, chosen_stats)]
 print(*stat_first_names, sep='\t')
-print(*body1, sep='\t')
+print(*player.body1, sep='\t')
 
 # save to file
 time_string = time.strftime("%Y-%m-%d--%H%M%S")
@@ -107,7 +105,7 @@ for D in chosen_stats:
     f.write(str(D))
     f.write('\t')
 f.write('\n')
-for A in body1:
+for A in player.body1:
     f.write(str(A))
     f.write('\t')
 f.close()
