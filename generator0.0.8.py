@@ -17,8 +17,10 @@ def x_dices_n(x,n):
     return result
 
 #crude race selector ;)
-player = Being.Human([], [])
+player = Being.Dwarf ()
+print("to jest to miejsce")
 print(player.base_line_1)
+
 # roll for stats with generic dice
 fresh_stats=[]
 for x in range(0, 8):
@@ -86,7 +88,8 @@ print(*chosen_stats, sep='\t')
 # increment race base with chosen stats
 player.body1 = [sum(x) for x in zip(player.base_line_1, chosen_stats)]
 print(*stat_first_names, sep='\t')
-print(*player.body1, sep='\t')
+#print(player.body1, sep='\t')
+print(player.base_line_1)
 
 # save to file
 time_string = time.strftime("%Y-%m-%d--%H%M%S")
