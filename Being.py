@@ -20,17 +20,21 @@ class Being():
         #self.spells = spells
               
 class Human(Being):
-    base_line_1 = [20] * 8
-    body1 = []    
-
+    def __init__(self):
+        self.base_line_1 = [20] * 8
+        self.body1 = []
+    
 class Dwarf(Being):
-    base_line_1 = [30, 20, 20, 30, 10, 20, 20, 10]
-    body1 = []
+    def __init__(self):
+        self.base_line_1 = [30, 20, 20, 30, 10, 20, 20, 10]
+        self.body1 = []
       
 class Elf(Being):
-    base_line_1 = [20, 30, 20, 20, 30, 20, 20, 20]
-    body1 = []
+    def __init__(self):
+        self.base_line_1 = [20, 30, 20, 20, 30, 20, 20, 20]
+        self.body1 = []
     
 class Halfling(Being):
-    base_line_1 = [10, 30, 10, 10, 30, 20, 20, 30]
-    body1 = []
+    def __init__(self):
+        self.base_line_1 = [10, 30, 10, 10, 30, 20, 20, 30]
+        self.body1 = []
