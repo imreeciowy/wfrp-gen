@@ -25,6 +25,7 @@ class Human(Being):
         self.base_line_1 = [20] * 8
         self.body1 = []
         self.base_line_2 = [0] * 8
+        self.base_line_2[0] = 1
         self.body2 = []
 
 class Dwarf(Being):
@@ -32,6 +33,7 @@ class Dwarf(Being):
         self.base_line_1 = [30, 20, 20, 30, 10, 20, 20, 10]
         self.body1 = []
         self.base_line_2 = [0] * 8
+        self.base_line_2[0] = 1
         self.body2 = []
 
 class Elf(Being):
@@ -39,6 +41,7 @@ class Elf(Being):
         self.base_line_1 = [20, 30, 20, 20, 30, 20, 20, 20]
         self.body1 = []
         self.base_line_2 = [0] * 8
+        self.base_line_2[0] = 1
         self.body2 = []
 
 class Halfling(Being):
@@ -46,4 +49,5 @@ class Halfling(Being):
         self.base_line_1 = [10, 30, 10, 10, 30, 20, 20, 30]
         self.body1 = []
         self.base_line_2 = [0] * 8
+        self.base_line_2[0] = 1
         self.body2 = []
