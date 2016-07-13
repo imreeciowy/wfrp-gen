@@ -17,7 +17,7 @@ def x_dices_n(x,n):
     return result
 
 #crude race selector ;)
-player = Being.Dwarf ()
+player = Being.Human()
 print("to jest to miejsce")
 print(player.base_line_1)
 
@@ -34,6 +34,7 @@ fresh_stats.sort(reverse=True)
 
 # print list without brackets(stat_listed_String)
 stat_listed_String = ' '.join(str(S) for S in fresh_stats)
+print('wylosowane')
 print(stat_listed_String)
 
 # raw list for chosen stats
@@ -75,21 +76,24 @@ for idx, val in enumerate(fresh_stats):
         else:
             break
             
-for w in range(0, 80):
+for w in range(0, 60):
     print("*", end='')
 print('\n')
+print('stat_first_names')
 print(*stat_first_names, sep='\t')
+print('chosen_stats')
 print(*chosen_stats, sep='\t')
 
 #test purposes
+
 #print(*used_stats, sep='\t')
 #print(*fresh_stats, sep='\t')
 
 # increment race base with chosen stats
+print('Your character body')
 player.body1 = [sum(x) for x in zip(player.base_line_1, chosen_stats)]
 print(*stat_first_names, sep='\t')
-#print(player.body1, sep='\t')
-print(player.base_line_1)
+print(*player.body1, sep='\t')
 
 # save to file
 time_string = time.strftime("%Y-%m-%d--%H%M%S")
