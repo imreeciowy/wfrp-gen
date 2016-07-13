@@ -4,7 +4,6 @@ import random
 import time
 import sys
 import Being
-from os.path import expanduser
 
 # print python version- dev purposes
 print(sys.version)
