@@ -4,6 +4,7 @@ import random
 import time
 import sys
 import Being
+from os.path import expanduser
 
 # print python version- dev purposes
 print(sys.version)
@@ -16,10 +17,9 @@ def x_dices_n(x,n):
         result = roll_dice_n + result
     return result
 
-#crude race selector ;)
+# crude race selector ;)
 player = Being.Human()
 print("to jest to miejsce")
-print(player.base_line_1)
 
 # roll for stats with generic dice
 fresh_stats=[]
@@ -62,11 +62,11 @@ for idx, val in enumerate(fresh_stats):
     print('\n')
     while True: 
         try:
-            index = int(input('? '))    #input stat index
-            if (used_stats.count(index)!=0):     #check if not assigned already
-                raise StatPresentError()        #give one more time if already assigned
-            chosen_stats[index]=val        #assign value to index
-            used_stats.append(index)     #notes what is assigned
+            index = int(input('? '))    # input stat index
+            if (used_stats.count(index)!=0):     # check if not assigned already
+                raise StatPresentError()        # give one more time if already assigned
+            chosen_stats[index]=val        # assign value to index
+            used_stats.append(index)     # notes what is assigned
         except KeyboardInterrupt:
             print('BYE!')
             sys.exit(0)
@@ -84,16 +84,18 @@ print(*stat_first_names, sep='\t')
 print('chosen_stats')
 print(*chosen_stats, sep='\t')
 
-#test purposes
+# test purposes
 
-#print(*used_stats, sep='\t')
-#print(*fresh_stats, sep='\t')
+# print(*used_stats, sep='\t')
+# print(*fresh_stats, sep='\t')
 
 # increment race base with chosen stats
 print('Your character body')
 player.body1 = [sum(x) for x in zip(player.base_line_1, chosen_stats)]
 print(*stat_first_names, sep='\t')
 print(*player.body1, sep='\t')
+print(*stat_second_names, sep='\t')
+print(*player.base_line_2, sep='\t')
 
 # save to file
 time_string = time.strftime("%Y-%m-%d--%H%M%S")
