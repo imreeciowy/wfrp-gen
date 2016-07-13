@@ -18,7 +18,6 @@ def x_dices_n(x,n):
 
 # crude race selector ;)
 player = Being.Human()
-print("to jest to miejsce")
 
 # roll for stats with generic dice
 fresh_stats=[]
@@ -33,7 +32,7 @@ fresh_stats.sort(reverse=True)
 
 # print list without brackets(stat_listed_String)
 stat_listed_String = ' '.join(str(S) for S in fresh_stats)
-print('wylosowane')
+print('rolled')
 print(stat_listed_String)
 
 # raw list for chosen stats
@@ -91,6 +90,9 @@ print(*chosen_stats, sep='\t')
 # increment race base with chosen stats
 print('Your character body')
 player.body1 = [sum(x) for x in zip(player.base_line_1, chosen_stats)]
+print("HERE")
+player.base_line_2[2] = player.body1[2] // 10
+player.base_line_2[3] = player.body1[3] // 10
 print(*stat_first_names, sep='\t')
 print(*player.body1, sep='\t')
 print(*stat_second_names, sep='\t')
