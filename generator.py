@@ -24,6 +24,28 @@ fresh_stats=[]
 for x in range(0, 8):
     fresh_stats.append(x_dices_n(2, 10))
 
+# roll for wounds
+wound_table_roll = x_dices_n(1, 10)
+if wound_table_roll <= 3:
+    player.base_line_2[1] = player.wounds_table[0]
+elif wound_table_roll <=6:
+    player.base_line_2[1] = player.wounds_table[1]
+elif wound_table_roll <=9:
+    player.base_line_2[1] = player.wounds_table[2]
+else:
+    player.base_line_2[1] = player.wounds_table[3]
+
+
+# roll for fate points
+fate_points_table_roll = x_dices_n(1, 10)
+if fate_points_table_roll <=4:
+    player.base_line_2[7] = player.fate_table[0]
+elif fate_points_table_roll <=7:
+    player.base_line_2[7] = player.fate_table[1]
+else:
+     player.base_line2[7] = player.fate_table[2]
+
+
 # sorts rolled results, removes lowest result, adds 11 as Shalya'a Favor, sorts again
 fresh_stats.sort()	
 fresh_stats.pop(0)
@@ -79,11 +101,6 @@ for w in range(0, 60):
 print('\n')
 print(*stat_first_names, sep='\t')
 print(*chosen_stats, sep='\t')
-
-# test purposes
-
-# print(*used_stats, sep='\t')
-# print(*fresh_stats, sep='\t')
 
 # increment race base with chosen stats
 print('Your character body')
