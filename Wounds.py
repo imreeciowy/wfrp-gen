@@ -8,13 +8,14 @@ def x_dices_n(x,n):
         roll_dice_n = random.randint(1,n)
         result = roll_dice_n + result
     return result
-
-fate_table = [[1, 1, 2, 2]
-                  [2, 2, 2, 3]
-                  [3, 2, 3, 3]]
+wounds_table = [[11, 9, 8, 10]
+                  [12, 10, 9, 11]
+                  [13, 11, 10, 12]
+                  [14, 12, 11, 13]]
 
 roll = x_dice_n(1, 10)
 result = roll / 3
 print(result)
 line = math.ceil(result)
 print(line)
+
