@@ -1,5 +1,5 @@
 class Being():
-    def __init__(self, base_line_1, body1, base_line_2, body2):
+    def __init__(self, base_line_1, body1, base_line_2, body2, wounds_table, fate_table):
     # def __init__(self, race, name, current_career, previous_careers, age, gender, secondary_presonal_details, base_line_1, base_line_2, trappings, weapon, armour, skills, talents, money, spells):
         # self.race = race
         # self.name = name
@@ -12,6 +12,8 @@ class Being():
         self.body1 = body1
         self.base_line_2 = base_line_2
         self.body2 = body2
+        self.wounds_table = wounds_table
+        self.fate_table = fate_table
         # self.trappings = trappings
         # self.weapon = weapon
         # self.armour = armour
@@ -28,6 +30,8 @@ class Human(Being):
         self.base_line_2[0] = 1
         self.base_line_2[4] = 4
         self.body2 = []
+        self.wounds_table = [10, 11, 12, 13]
+        self.fate_table = [2, 3, 3]
 
 class Dwarf(Being):
     def __init__(self):
@@ -37,6 +41,8 @@ class Dwarf(Being):
         self.base_line_2[0] = 1
         self.base_line_2[4] = 3
         self.body2 = []
+        self.wounds_table = [11, 12, 13, 14]
+        self.fate_table = [1, 2, 3]
 
 class Elf(Being):
     def __init__(self):
@@ -46,6 +52,8 @@ class Elf(Being):
         self.base_line_2[0] = 1
         self.base_line_2[4] = 5
         self.body2 = []
+        self.wounds_table = [9, 10, 11, 12]
+        self.fate_table = [1, 2, 2]
 
 class Halfling(Being):
     def __init__(self):
@@ -55,3 +63,5 @@ class Halfling(Being):
         self.base_line_2[0] = 1
         self.base_line_2[4] = 4
         self.body2 = []
+        self.wounds_table = [8, 9, 10, 11]
+        self.fate_table = [2, 2, 3]
