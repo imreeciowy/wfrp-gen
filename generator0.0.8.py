@@ -77,9 +77,7 @@ for idx, val in enumerate(fresh_stats):
 for w in range(0, 60):
     print("*", end='')
 print('\n')
-print('stat_first_names')
 print(*stat_first_names, sep='\t')
-print('chosen_stats')
 print(*chosen_stats, sep='\t')
 
 # test purposes
@@ -90,7 +88,6 @@ print(*chosen_stats, sep='\t')
 # increment race base with chosen stats
 print('Your character body')
 player.body1 = [sum(x) for x in zip(player.base_line_1, chosen_stats)]
-print("HERE")
 player.base_line_2[2] = player.body1[2] // 10
 player.base_line_2[3] = player.body1[3] // 10
 print(*stat_first_names, sep='\t')
