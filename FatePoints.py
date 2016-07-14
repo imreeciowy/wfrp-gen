@@ -17,4 +17,4 @@ roll = x_dice_n(1, 10)
 result = roll / 3
 print(result)
 line = math.ceil(result)
-print(line)
+print(*fate_table[line-1])
