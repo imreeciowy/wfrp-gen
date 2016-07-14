@@ -17,5 +17,4 @@ roll = x_dice_n(1, 10)
 result = roll / 3
 print(result)
 line = math.ceil(result)
-print(line)
-
+print(*wounds_table[line-1])
