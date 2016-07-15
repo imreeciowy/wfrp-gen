@@ -107,10 +107,11 @@ print('Your character body')
 player.body1 = [sum(x) for x in zip(player.base_line_1, chosen_stats)]
 player.base_line_2[2] = player.body1[2] // 10
 player.base_line_2[3] = player.body1[3] // 10
+player.body2 = player.base_line_2 # to have naming consistency, yes it duplicates list but is consistent
 print(*stat_first_names, sep='\t')
 print(*player.body1, sep='\t')
 print(*stat_second_names, sep='\t')
-print(*player.base_line_2, sep='\t')
+print(*player.body2, sep='\t')
 
 # save to file
 time_string = time.strftime("%Y-%m-%d--%H%M%S")
@@ -125,11 +126,16 @@ for i in range(8):
     f.write(str(stat_first_names[i]))
     f.write('\t')
 f.write('\n')
-for D in chosen_stats:
-    f.write(str(D))
-    f.write('\t')
-f.write('\n')
 for A in player.body1:
     f.write(str(A))
     f.write('\t')
+f.write('\n')
+for i in range(8):
+    f.write(str(stat_second_names[i]))
+    f.write('\t')
+f.write('\n')
+for A in player.body2:
+    f.write(str(A))
+    f.write('\t')
+f.write('\n')
 f.close()
