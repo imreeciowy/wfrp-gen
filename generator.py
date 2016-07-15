@@ -17,7 +17,16 @@ def x_dices_n(x,n):
     return result
 
 # crude race selector ;)
-player = Being.Human()
+
+for arg in sys.argv:
+    if arg == e:
+        player = Being.Elf
+    elif arg == h:
+        player = Being.Halfling
+    elif arg == d:
+        player = Being.Dwarf
+    else:
+        player = Being.Human()
 
 # roll for stats with generic dice
 fresh_stats=[]
