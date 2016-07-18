@@ -18,16 +18,24 @@ def x_dices_n(x,n):
     return result
 
 
-# crude race selector ;)
-for arg in sys.argv:
-    if arg == e:
-        player = Being.Elf
-    elif arg == h:
-        player = Being.Halfling
-    elif arg == d:
-        player = Being.Dwarf
-    else:
-        player = Being.Human()
+# race selector ;)
+program_name = sys.argv[0]
+if len(sys.argv) > 1:
+    arg = sys.argv[1]
+    while True:
+        try:
+            for A in sys.argv:
+                if A == 'e':
+                    player = Being.Elf()
+                elif A == 'h':
+                    player = Being.Halfling()
+                elif A == 'd':
+                    player = Being.Dwarf()
+                elif A == 'u':
+                    player = Being.Human()
+        except NameError:
+            player = Being.Human()
+else:player = Being.Human()
 
 # roll for stats with generic dice
 fresh_stats=[]
@@ -55,7 +63,7 @@ else:
      player.base_line2[7] = player.fate_table[2]
 
 # sorts rolled results, removes lowest result, adds 11 as Shalya'a Favor, sorts again
-fresh_stats.sort()	
+fresh_stats.sort()
 fresh_stats.pop(0)
 fresh_stats.append(11)
 fresh_stats.sort(reverse=True)
