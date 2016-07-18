@@ -7,6 +7,14 @@ Copyright (C) 2016 Piotr Świątek
 This software may be modified and distributed under the terms
 of the MIT license.  See the LICENSE file for details.
 
+# howto run
+generator.py x
+where x is:
+d for Dwarf
+e for Elf
+h for Halfling
+u or none for Human
+
 # TODOs
 - see in 'Issues'
 
