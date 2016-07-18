@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 
 import random
-import time
 import sys
+import time
 import Being
 
 # print python version- dev purposes
 print(sys.version)
+
 
 # generic dice
 def x_dices_n(x,n):
@@ -16,8 +17,25 @@ def x_dices_n(x,n):
         result = roll_dice_n + result
     return result
 
-# crude race selector ;)
-player = Being.Human()
+
+# race selector ;)
+program_name = sys.argv[0]
+if len(sys.argv) > 1:
+    arg = sys.argv[1]
+    while True:
+        try:
+            for A in sys.argv:
+                if A == 'e':
+                    player = Being.Elf()
+                elif A == 'h':
+                    player = Being.Halfling()
+                elif A == 'd':
+                    player = Being.Dwarf()
+                elif A == 'u':
+                    player = Being.Human()
+        except NameError:
+            player = Being.Human()
+else:player = Being.Human()
 
 # roll for stats with generic dice
 fresh_stats=[]
@@ -35,7 +53,6 @@ elif wound_table_roll <=9:
 else:
     player.base_line_2[1] = player.wounds_table[3]
 
-
 # roll for fate points
 fate_points_table_roll = x_dices_n(1, 10)
 if fate_points_table_roll <=4:
@@ -45,9 +62,8 @@ elif fate_points_table_roll <=7:
 else:
      player.base_line2[7] = player.fate_table[2]
 
-
 # sorts rolled results, removes lowest result, adds 11 as Shalya'a Favor, sorts again
-fresh_stats.sort()	
+fresh_stats.sort()
 fresh_stats.pop(0)
 fresh_stats.append(11)
 fresh_stats.sort(reverse=True)
