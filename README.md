@@ -19,7 +19,7 @@ of the MIT license.  See the LICENSE file for details.
 # to close before end
 - ctrl+c kills 
 
-# TODOs
+# TODOs and known Bugs
 - see in 'Issues'
 
 # Why WFRP generator
