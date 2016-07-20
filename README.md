@@ -8,7 +8,7 @@ This software may be modified and distributed under the terms
 of the MIT license.  See the LICENSE file for details.
 
 # howto run
-- All you need id generator.py and Being.py in the same folder
+- All you need is generator.py and Being.py in the same folder
 - run generator.py x
 - where x is:
 - d for Dwarf
