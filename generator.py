@@ -18,24 +18,28 @@ def x_dices_n(x,n):
     return result
 
 
-# race selector ;)
+# race selector
 program_name = sys.argv[0]
 if len(sys.argv) > 1:
     arg = sys.argv[1]
     while True:
         try:
-            for A in sys.argv:
-                if A == 'e':
-                    player = Being.Elf()
-                elif A == 'h':
-                    player = Being.Halfling()
-                elif A == 'd':
-                    player = Being.Dwarf()
-                elif A == 'u':
-                    player = Being.Human()
+            if arg == 'e':
+                player = Being.Elf()
+            elif arg == 'h':
+                player = Being.Halfling()
+            elif arg == 'd':
+                player = Being.Dwarf()
+            elif arg == 'u':
+                player = Being.Human()
+            else:
+                player = Being.Human()
         except NameError:
             player = Being.Human()
-else:player = Being.Human()
+        else:
+            break
+else:
+    player = Being.Human()
 
 # roll for stats with generic dice
 fresh_stats=[]
