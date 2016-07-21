@@ -15,7 +15,8 @@ of the MIT license.  See the LICENSE file for details.
 - e for Elf
 - h for Halfling
 - u or none for Human
-WARNING: due to unknown error it is often needed to run script few times in a row before it runs ok (!).
+WARNING: Works OK under 3.4.4
+I found that 3.4.3 and 3.5.1 have some stability issues.
 
 
 # to close before end
