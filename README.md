@@ -15,6 +15,8 @@ of the MIT license.  See the LICENSE file for details.
 - e for Elf
 - h for Halfling
 - u or none for Human
+WARNING: due to unknown error it is often needed to run script few times in a row before it runs ok (!).
+
 
 # to close before end
 - ctrl+c kills 
@@ -25,4 +27,4 @@ of the MIT license.  See the LICENSE file for details.
 # Why WFRP generator
 - Learning purpose (but developed to be fully functional WFRP character generator.)
 - Creating Role Playing character generator is a great opportunity to learn new programming language (specifics in closed and open Issues section)
-- I'm game master since 1998 :) (WFRP, CoC, V:tM)
+- I'm Game Master since 1998 :) (WFRP, CoC, V:tM)
