@@ -3,7 +3,10 @@
 import random
 import sys
 import time
+import kivy
 import Being
+
+kivy.require('1.9.1')
 
 # print python version- dev purposes
 print(sys.version)
