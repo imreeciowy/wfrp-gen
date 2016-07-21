@@ -15,7 +15,8 @@ of the MIT license.  See the LICENSE file for details.
 - e for Elf
 - h for Halfling
 - u or none for Human
-WARNING: Works OK under 3.4.4
+
+# WARNING: Works OK under 3.4.4
 I found that 3.4.3 and 3.5.1 have some stability issues.
 
 
